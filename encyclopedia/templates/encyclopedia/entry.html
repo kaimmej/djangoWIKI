@@ -1,0 +1,15 @@
+{% extends "encyclopedia/partials/base.html" %}
+
+{% block title %}
+    {{ entry_title }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    {{ entry_content | safe }}
+
+</div>
+
+
+{% endblock %}
