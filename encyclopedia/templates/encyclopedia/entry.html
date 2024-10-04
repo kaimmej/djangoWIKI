@@ -5,11 +5,23 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
+    <div class="container">
+        
+        <div class="row my-4">
+            <div class="col">
+                <a type="button" href="{% url 'encyclopedia:update_entry' entry_title %}" name="edit" value="{{entry_title}}" class="btn btn-primary">Edit this Page<i class="fa-solid fa-pen-to-square ms-3"></i></a>
+            </div>
+            <div class="col">
+                <button type="button" href="#" class="btn btn-outline-danger float-end">Delete this Page<i class="fa-solid fa-x ms-3"></i></button>
+            </div>
+            
+        </div>
+        
+        {{ entry_content | safe }}
 
-    {{ entry_content | safe }}
-
-</div>
+    </div>
 
 
 {% endblock %}
+
+

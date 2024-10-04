@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "debug_toolbar",
     'markdown2',
+    'fontawesomefree'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -41,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'wiki.urls'
@@ -112,3 +115,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+
+# from django.forms.renderers import TemplatesSetting
+
+
+# class CustomFormRenderer(TemplatesSetting):
+#     form_template_name = "/encyclopedia/templates/encyclopedia/partials/form_snippet.html"
+
+
+# FORM_RENDERER = "project.settings.CustomFormRenderer"
