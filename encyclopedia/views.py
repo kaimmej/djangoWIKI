@@ -68,13 +68,36 @@ def update_entry(request, wiki_title):
 
         
         else:
-            return HttpResponseRedirect(reverse("encyclopedia:update_entry", args=(name,)), {
+            description = util.get_entry(wiki_title)
+            
+            return HttpResponseRedirect(reverse("encyclopedia:update_entry", args=(wiki_title,)), {
                 "form":form
             })
-            # return render(request, "encyclopedia/create_entry", {
-            #     "form":form
-            # })
-        
-    return render(request, "encyclopedia/update_entry.html", {
-        "form": EntryForm()
-    })
+
+    else:
+        print("GET")
+        # return HttpResponseRedirect(reverse("encyclopedia/update_entry", args=(wiki_title,)), {
+        #     "form": EntryForm()
+        # })
+        return render(request, "encyclopedia/create_entry.html", {
+            "form": EntryForm()
+        }, args=(wiki_title,))
+
+
+def search(request):
+
+    print("SEARCH")
+
+    if request.method == 'POST':
+        print("POST")
+        entry_search = request.POST['q'] 
+        print(f"{entry_search=}")
+        html_content = convert_md_to_html(entry_search)
+        if html_content is not None:
+            return render(request, "encyclopedia/entry.html", {
+                "title": entry_search,
+                "content": html_content
+            })
+    else:
+        print("GET")
+    return

@@ -36,3 +36,24 @@ h1 {
 .sidebar h2 {
     margin-top: 5px;
 }
+.sidebar-nav-link{
+    border-radius:  10px;
+    padding: 10px;
+    &:hover {
+        color: white;
+        background-color: gray;
+    } 
+}
+
+
+
+#svg-intro {
+    height: 410px;
+    z-index: -10;
+  }
+
+  @media (min-width: 1200px) {
+    #svg-intro {
+      height: 710px;
+    }
+  }

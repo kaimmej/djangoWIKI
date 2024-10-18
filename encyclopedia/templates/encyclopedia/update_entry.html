@@ -4,7 +4,7 @@
 {% extends "encyclopedia/partials/base.html" %}
 
 {% block title %}
-    {{ entry_title }}
+    {{ wiki_title }}
 {% endblock %}
 
 {% block body %}
@@ -16,7 +16,7 @@
     <hr class="mb-5"/>
 
 
-    <form action="{% url 'encyclopedia:update_entry' entry_title %}" method="post">
+    <form action="{% url 'encyclopedia:update_entry' wiki_title %}" method="post">
         <div class="mb-3 p-2">
         
             {% csrf_token %}
@@ -32,7 +32,7 @@
 
 
 
-
+ 
 </div>
 
 
